@@ -1060,8 +1060,8 @@ function Aaa(tyPe) {
         price_uv.style.color="blue";
     }
 
-    console.log(" paperType: " + paperType + " imageWidth:" + imageWidth + " imageLength:" +
-         imageLength + " coUnt:" + coUnt + " calCulate:" + calCulate + " metHod:" + metHod + " printWidth:" + printWidth);
+    // console.log(" paperType: " + paperType + " imageWidth:" + imageWidth + " imageLength:" +
+    //      imageLength + " coUnt:" + coUnt + " calCulate:" + calCulate + " metHod:" + metHod + " printWidth:" + printWidth);
 }
 
 function numberWithCommas(x) {

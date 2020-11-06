@@ -15,13 +15,34 @@
     color: white;
 }
 
-.whinfo{       
+.infobox{       
     line-height: 30px;        
-    display: inline-block;
+    flex-direction: row;
+    align-items: center;
     border: 1px solid coral;
     padding: 1em ;
     width: 300px;
-    
+    display: flex;        
+}
+.clear{        
+    text-align: center;
+    width: 130px;
+    padding-left: 1em;    
+}
+#clear_btn{
+    width: 140px;
+    height: 80px;
+    border-radius: 15px;    
+    color: white;    
+    background-color: coral ;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+}
+
+.clear_btn:hover{
+    background-color: rgb(11, 184, 132);
+    border: none;
 }
 .line{
     padding: 0.5em;

@@ -16,21 +16,26 @@
         <h2>출력물계산기</h2>
     </div>
     <div class="content">
-        <div class="whinfo">
-            <label>가로 <input class="text_box" type="number" id="widthprint" autofocus name="whinfo" value="">
-                cm</label>
-            <p></p>
-            <label>세로 <input class="text_box" type="number" id="heightprint" name="whinfo" value=""> cm</label>
-            <p></p>
-            <label>수량 <input class="text_box" type="number" id="eaprint" name="whinfo" value="1"> 장</label>
-            <p></p>
-            <p id="hebe">헤베 :</p>
+        <div class="infobox">
+            <div class="whinfo">
+                <label>가로 <input class="text_box" type="number" id="widthprint" autofocus name="whinfo" value="">
+                    cm</label>
+                <p></p>
+                <label>세로 <input class="text_box" type="number" id="heightprint" name="whinfo" value=""> cm</label>
+                <p></p>
+                <label>수량 <input class="text_box" type="number" id="eaprint" name="whinfo" value="1"> 장</label>
+                <p></p>
+                <p id="hebe">헤베 :</p>
+            </div>
+            <div class="clear">
+                <input type="button" id="clear_btn" value="입력초기화">
+            </div>
         </div>
         <div class="contentsum">
             <div class="input1">
                 <div class="clothselect">
                     <select id="papertype">
-                        <option value="" selected>원단선택</option>
+                        <option value="원단선택" selected>원단선택</option>
                         <optgroup label="후렉스">
                             <option value="조명후렉스">조명후렉스</option>
                             <option value="그레이후렉스">그레이후렉스</option>
@@ -173,6 +178,26 @@
         const radio_samedata = document.getElementById('r2');
         const radio_single = document.getElementById('r3');
 
+        const clear_btn = document.getElementById('clear_btn'); //초기화버튼
+
+        clear_btn.addEventListener('click',function(){
+            document.getElementById('widthprint').value="";
+            document.getElementById('heightprint').value="";
+            document.getElementById('eaprint').value= 1;
+
+            paper.selectedIndex=0;
+            wid.style.display = "none" //현수막원단폭        
+            cloth.style.display = "none"; //현수막저가일반
+            cott.style.display = "none" //코팅방법
+            hurem.style.display = "none" //후렘출력
+            radio_hebe.checked = true;
+            radio_samedata.disabled = false;
+            radio_single.disabled = false;
+            
+            Aaa('기타')
+
+        });
+
         radio_hebe.addEventListener('click', function () {
             let paperIndex = paper.options.selectedIndex;
             let pp = paper.options[paperIndex].value;
@@ -210,8 +235,18 @@
 
             let paperIndex = paper.options.selectedIndex;
             let pp = paper.options[paperIndex].value;
+            
 
-            if (pp === '현수막') {
+            if(pp === '원단선택' ){
+                wid.style.display = "none" //현수막원단폭        
+                cloth.style.display = "none"; //현수막저가일반
+                cott.style.display = "none" //코팅방법
+                hurem.style.display = "none" //후렘출력
+                radio_hebe.checked = true;
+                radio_samedata.disabled = false;
+                radio_single.disabled = false;
+
+            } else if (pp === '현수막') {
                 wid.style.display = "block" //현수막원단폭        
                 // cloth.style.display = "block"; //현수막저가일반
                 cott.style.display = "none" //코팅방법
