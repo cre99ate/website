@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="main.js"></script>
+
+
+    <title>출력물계산기</title>
+</head>
+
+<body>
+    <div class="head">
+        <h2>출력물계산기</h2>
+    </div>
+    <div class="content">
+        <div class="whinfo">
+            <label>가로 <input class="text_box" type="number" id="widthprint" autofocus name="whinfo" value="90">
+                cm</label>
+            <p></p>
+            <label>세로 <input class="text_box" type="number" id="heightprint" name="whinfo" value="150"> cm</label>
+            <p></p>
+            <label>수량 <input class="text_box" type="number" id="eaprint" name="whinfo" value="6"> 장</label>
+            <p></p>
+            <p id="hebe">헤베 :</p>
+        </div>
+        <div class="contentsum">
+            <div class="input1">
+                <div class="clothselect">
+                    <select id="papertype">
+                        <option value="" selected>원단선택</option>
+                        <optgroup label="후렉스">
+                            <option value="조명후렉스">조명후렉스</option>
+                            <option value="그레이후렉스">그레이후렉스</option>
+                            <option value="메쉬천">메쉬천</option>
+                        </optgroup>
+                        <optgroup label="현수막">
+                            <option value="현수막">현수막</option>
+                        </optgroup>
+                        <optgroup label="수성">
+                            <option value="유포지">유포지</option>
+                            <option value="유포그레이">유포그레이</option>
+                            <option value="캘지">캘지</option>
+                            <option value="캘지그레이">유포그레이</option>
+                            <option value="패트지">패트지</option>
+                            <option value="와이드칼라">와이트칼라</option>
+                        </optgroup>
+                        <optgroup label="시트">
+                            <option value="일반시트">일반시트</option>
+                            <option value="철판시트">철판시트</option>
+                            <option value="차량시트">차량시트</option>
+                            <option value="조명시트">조명시트</option>
+                            <option value="투명시트">투명시트</option>
+                            <option value="엠보시트">엠보시트</option>
+                            <option value="타공채널시트">타공채널시트</option>
+                            <option value="타공썬팅시트">타공썬팅시트</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="line"></div>
+                <div class="clothwidth">
+                    <select id="printWidthType" style="display:none">
+                        <option value="" selected>현수막원단폭</option>
+                        <option value="폭30">30폭</option>
+                        <option value="폭40">40폭</option>
+                        <option value="폭50">50폭</option>
+                        <option value="폭60">60폭</option>
+                        <option value="폭70">70폭</option>
+                        <option value="폭80">80폭</option>
+                        <option value="폭90">90폭</option>
+                        <option value="폭100">100폭</option>
+                        <option value="폭106">106폭</option>
+                        <option value="폭110">110폭</option>
+                        <option value="폭120">120폭</option>
+                        <option value="폭130">130폭</option>
+                        <option value="폭137">137폭</option>
+                        <option value="폭140">140폭</option>
+                        <option value="폭150">150폭</option>
+                        <option value="폭160">160폭</option>
+                        <option value="폭180">180폭</option>
+                    </select>
+                </div>
+
+                <div class="line"></div>
+                <div>
+                    <input type="radio" id='r1' value="헤베" name="radio_method" checked>
+                    <label for='r1'>헤베(합폭)</label><br>
+                    <input type="radio" id='r2' value="동일데이터" name="radio_method">
+                    <label for='r2'>동일데이터</label><br>
+                    <input type="radio" id='r3' value="단품" name="radio_method">
+                    <label for='r3'>단품</label>
+                </div>
+            </div>
+
+            <div class="layer3">
+                <div class='method' id="met_cott" style="display:none">
+                    <input type="radio" id='cotting1' name="cottiongsection" value="출력만">
+                    <label for='cotting1'>출력만(코팅x)</label><br>
+                    <input type="radio" id='cotting2' name="cottiongsection" value="무광코팅" checked>
+                    <label for='cotting2'>무광코팅</label><br>
+                    <input type="radio" id='cotting3' name="cottiongsection" value="유광코팅">
+                    <label for='cotting3'>유광코팅</label><br>
+                    <input type="radio" id='cotting4' name="cottiongsection" value="유브이코팅">
+                    <label for='cotting4'>유브이코팅</label><br>
+                    <input type="radio" id='cotting5' name="cottiongsection" value="양면코팅">
+                    <label for='cotting5'>양면코팅</label>
+                </div>
+                <div class='method' id="met_hurem" style="display:none">
+                    <input type="radio" id='hurem1' name="huremsection" value="출력일반" checked>
+                    <label for='hurem1'>출력만(일반)</label><br>
+                    <input type="radio" id='hurem2' name="huremsection" value="출력풀칼라">
+                    <label for='hurem2'>출력만(풀칼라)</label><br>
+                    <input type="radio" id='hurem3' name="huremsection" value="제작일반">
+                    <label for='hurem3'>후렘제작(일반)</label><br>
+                    <input type="radio" id='hurem4' name="huremsection" value="제작풀칼라">
+                    <label for='hurem4'>후렘제작(풀칼라)</label>
+                </div>
+
+                <div class='method' id="met_cloth" style="display:none">
+                    <input type="radio" id='won1' name="clothsection" value="일반" checked>
+                    <label for='won1'>일반</label><br>
+                    <input type="radio" id='won2' name="clothsection" value="저가">
+                    <label for='won2'>저가</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="infonumber">
+            <ul>
+                <li id="price_water">수성 :</li>
+                <li id="price_minisol">약솔벤 :</li>
+                <li id="price_strongsol">강솔벤 :</li>
+                <li id="price_latax">라텍스 :</li>
+                <li id="price_uv">유브이 :</li>
+            </ul>
+        </div>
+        <div class="input">
+            <button id="btn">계산하기</button>
+        </div>
+    </div>
+    <script>
+        const wondanListAll = '<option value=' + '폭30' + '>30폭</option>' +
+            '<option value=' + '폭40' + '>40폭</option>' +
+            '<option value=' + '폭50' + '>50폭</option>' +
+            '<option value=' + '폭60' + '>60폭</option>' +
+            '<option value=' + '폭70' + '>70폭</option>' +
+            '<option value=' + '폭80' + '>80폭</option>' +
+            '<option value=' + '폭90' + '>90폭</option>' +
+            '<option value=' + '폭100' + '>100폭</option>' +
+            '<option value=' + '폭106' + '>106폭</option>' +
+            '<option value=' + '폭110' + '>110폭</option>' +
+            '<option value=' + '폭120' + '>120폭</option>' +
+            '<option value=' + '폭130' + '>130폭</option>' +
+            '<option value=' + '폭137' + '>137폭</option>' +
+            '<option value=' + '폭140' + '>140폭</option>' +
+            '<option value=' + '폭150' + '>150폭</option>' +
+            '<option value=' + '폭160' + '>160폭</option>' +
+            '<option value=' + '폭180' + '>180폭</option>'
+        const wondanList = '<option value=' + '폭70' + '>70폭</option>' +
+            '<option value=' + '폭90' + '>90폭</option>'
+
+
+        const paper = document.getElementById("papertype"); //원단종류선택자        
+
+        const wid = document.getElementById('printWidthType'); //현수막원단폭선택자
+        const cott = document.getElementById('met_cott'); //코팅선택자
+        const hurem = document.getElementById('met_hurem'); //후렘출력선택자
+        const cloth = document.getElementById('met_cloth'); //현수막저가일반선택자
+
+        const radio_hebe = document.getElementById('r1');
+        const radio_samedata = document.getElementById('r2');
+        const radio_single = document.getElementById('r3');
+
+        radio_hebe.addEventListener('click', function () {
+            let paperIndex = paper.options.selectedIndex;
+            let pp = paper.options[paperIndex].value;
+            if (pp === '현수막') {
+                wid.style.display = "none" //현수막원단폭
+                cloth.style.display = "none" //현수막(저가/일반)선택자   
+                wid.innerHTML = wondanListAll;
+
+            };
+        });
+        radio_samedata.addEventListener('click', function () {
+            let paperIndex = paper.options.selectedIndex;
+            let pp = paper.options[paperIndex].value;
+
+            if (pp === '현수막') {
+                wid.style.display = "block" //현수막원단폭
+                cloth.style.display = "block" //현수막(저가/일반)선택자  
+                wid.innerHTML = wondanList;
+
+            };
+        });
+        radio_single.addEventListener('click', function () {
+            let paperIndex = paper.options.selectedIndex;
+            let pp = paper.options[paperIndex].value;
+            if (pp === '현수막') {
+                wid.style.display = "block" //현수막원단폭
+                cloth.style.display = "none" //현수막(저가/일반)선택자 
+                wid.innerHTML = wondanListAll;
+            };
+        });
+
+
+
+        document.getElementById("papertype").addEventListener('click', function () {
+
+            let paperIndex = paper.options.selectedIndex;
+            let pp = paper.options[paperIndex].value;
+
+            if (pp === '현수막') {
+                wid.style.display = "block" //현수막원단폭        
+                // cloth.style.display = "block"; //현수막저가일반
+                cott.style.display = "none" //코팅방법
+                hurem.style.display = "none" //후렘출력
+                radio_hebe.checked = true;
+                radio_samedata.disabled = false;
+                radio_single.disabled = false;
+
+            } else if (pp === '조명후렉스' || pp === '그레이후렉스' || pp === '메쉬천') {
+                wid.style.display = "none" //현수막원단폭        
+                cloth.style.display = "none"; //현수막저가일반
+                cott.style.display = "none" //코팅방법
+                hurem.style.display = "block" //후렘출력
+                radio_hebe.checked = true;
+                radio_samedata.disabled = true;
+                radio_single.disabled = true;
+
+            } else {
+                wid.style.display = "none" //현수막원단폭        
+                cloth.style.display = "none"; //현수막저가일반
+                cott.style.display = "block" //코팅방법
+                hurem.style.display = "none" //후렘출력
+                radio_hebe.checked = true;
+                radio_samedata.disabled = true;
+                radio_single.disabled = true;
+            }
+
+        });
+
+        document.getElementById('btn').addEventListener('click', function () {
+
+            let paperIndex = paper.options.selectedIndex;
+            let pp = paper.options[paperIndex].value;
+
+            if (pp === '현수막') {
+                Aaa('현수막');
+            } else if (pp === '조명후렉스' || pp === '그레이후렉스' || pp === '메쉬천') {
+                Aaa('후렉스');
+            } else {
+                Aaa('기타');
+            };
+        });
+    </script>
+</body>
+
+</html>
