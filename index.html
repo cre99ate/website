@@ -13,17 +13,24 @@
 
 <body>
     <div class="head">
+        <div class="headtext">
         <h2>출력물계산기</h2>
+    </div>
+        <div class="content_movebtn">
+        <input class="move_btn" type="button" onclick="location.href='channel.html'" value="채널">
+        <input class="move_btn" type="button" onclick="location.href='scasi.html'" value="스카시">
+        <input class="move_btn" type="button" onclick="location.href='lightLed.html'" value="전광판">
+    </div>
     </div>
     <div class="content">
         <div class="infobox">
             <div class="whinfo">
-                <label>가로 <input class="text_box" type="number" id="widthprint" autofocus name="whinfo" value="">
+                <label>가로 <input class="text_box" type="number" min=0 id="widthprint" autofocus name="whinfo" value="">
                     cm</label>
                 <p></p>
-                <label>세로 <input class="text_box" type="number" id="heightprint" name="whinfo" value=""> cm</label>
+                <label>세로 <input class="text_box" type="number" min=0 id="heightprint" name="whinfo" value=""> cm</label>
                 <p></p>
-                <label>수량 <input class="text_box" type="number" id="eaprint" name="whinfo" value="1"> 장</label>
+                <label>수량 <input class="text_box" type="number" min=1 id="eaprint" name="whinfo" value="1"> 장</label>
                 <p></p>
                 <p id="hebe">헤베 :</p>
             </div>
