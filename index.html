@@ -239,14 +239,8 @@
 
 
         
-        if (window.addEventListener){
-            window.addEventListener("load", paperselecter);
-        } else if (window.attachEvent){
-            window.attachEvent("onload", paperselecter);
-        } else {
-            window.onload = paperselecter;
-        }
-        
+        window.addEventListener("load", paperselecter);
+                
         function paperselecter(){
             document.getElementById("papertype").onchange= Paperchange;
         }
