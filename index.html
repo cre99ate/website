@@ -41,7 +41,7 @@
         <div class="contentsum">
             <div class="input1">
                 <div class="clothselect">
-                    <select id="papertype" onchange="Paperchange()">
+                    <select id="papertype" >
                         <option value="원단선택" selected>원단선택</option>
                         <optgroup label="후렉스">
                             <option value="조명후렉스">조명후렉스</option>
@@ -238,9 +238,20 @@
 
 
 
-        // document.getElementById("papertype").addEventListener('click', ()=>Paperchange());
-
-        async function Paperchange(){
+        
+        if (window.addEventListener){
+            window.addEventListener("load", paperselecter);
+        } else if (window.attachEvent){
+            window.attachEvent("onload", paperselecter);
+        } else {
+            window.onload = paperselecter;
+        }
+        
+        function paperselecter(){
+            document.getElementById("papertype").onchange= Paperchange;
+        }
+        
+        function Paperchange(){
             
             let paperIndex = paper.options.selectedIndex;
             let pp = paper.options[paperIndex].value;
