@@ -238,8 +238,10 @@
 
 
 
-        document.getElementById("papertype").addEventListener('click', function () {
+        document.getElementById("papertype").addEventListener('click', ()=>Paperchange());
 
+        async function Paperchange(){
+            
             let paperIndex = paper.options.selectedIndex;
             let pp = paper.options[paperIndex].value;
             
@@ -281,7 +283,7 @@
                 radio_single.disabled = true;
             }
 
-        });
+        }
 
         document.getElementById('btn').addEventListener('click', function () {
 
